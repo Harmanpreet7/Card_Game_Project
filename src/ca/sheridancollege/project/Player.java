@@ -5,45 +5,91 @@
  */
 package ca.sheridancollege.project;
 
+import java.util.ArrayList;
+
 /**
- * A class that models each Player in the game. Players have an identifier, which should be unique.
+ * A class that models each Player in the game. Players have an identifier, 
+ * which should be unique.
  *
  * @author dancye
  * @author Paul Bonenfant Jan 2020
  */
-public abstract class Player {
+/**
+ * @author Harmanpreet Kaur 
+ * @author Manpreet Kaur
+ * @author Manjot Kaur
+ * @author Arshpreet Kaur
+ * modified: 16 August, 2021
+ */
 
-    private String name; //the unique name for this player
+public class Player {
+ 
+    //create an instance variable
+    private String playerName;
+    private ArrayList<Card> cards = new ArrayList<>();
+    
+    //create a constructor of Player class
+    public Player(){
+        super();
+    }
+    
+    public Player(String playerName) {
+        this.playerName = playerName;
+    }
+	
+    /**
+     * @return playerName 
+     */
+    public String getPlayerName() {
+        return this.playerName;
+    }
+	
+    /*
+    * @return cards
+    */
+    public ArrayList<Card> getCards() {
+	return cards;
+    }
+ 
+    /*
+    * @return void
+    * sets playerName
+    */
+    public void setPlayerName(String playerName) {
+	this.playerName = playerName;
+    }
+       
+    /**
+     * @param cards
+     * set cards
+     */
+    public void setCards(ArrayList<Card> cards){
+	this.cards = cards;
+    }
+
+    //prints the cards to console
+    public void printCards() {
+	for(int i=0; i<cards.size();i++) {
+            System.out.println("Card "+(i+1)+": "+cards.get(i).getValue()+ "     "+cards.get(i).getSuit());    
+        }
+    }
+        
+        /**
+         * 
+         * @param card
+         * @param index
+         */
+        public void changeCard(Card card, int index){
+            cards.set(index, card);
+        }
 
     /**
-     * A constructor that allows you to set the player's unique ID
      *
-     * @param name the unique ID to assign to this player.
+     * @return
      */
-    public Player(String name) {
-        this.name = name;
-    }
-
-    /**
-     * @return the player name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Ensure that the playerID is unique
-     *
-     * @param name the player name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * The method to be overridden when you subclass the Player class with your specific type of Player and filled in
-     * with logic to play your game.
-     */
-    public abstract void play();
-
+    //Overriding the declareWinner() method in Game
+    @Override
+    public String toString(){
+        return "Congratulatins "+ playerName+ " won the game with";
+   }
 }
