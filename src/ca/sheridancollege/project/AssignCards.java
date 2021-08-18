@@ -14,7 +14,7 @@ import java.util.List;
  * @author Manjot Kaur
  * @author Arshpreet Kaur
  * created: 11 August, 2021
- * modified: 16 August, 2021
+ * modified: 17 August, 2021
  */
 public class AssignCards extends Deck{
 	       
